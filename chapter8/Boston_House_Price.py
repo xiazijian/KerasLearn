@@ -4,7 +4,7 @@ from keras.models import Sequential
 from keras.layers import Dense
 from keras.wrappers.scikit_learn import KerasRegressor
 from sklearn.model_selection import cross_val_score
-from  sklearn.model_selection import KFold
+from sklearn.model_selection import KFold
 from sklearn.preprocessing import StandardScaler
 from sklearn.pipeline import Pipeline
 from sklearn.model_selection import GridSearchCV
@@ -30,7 +30,7 @@ def create_model(units_list=[13],optimizer='adam',init='normal'):
     model.compile(loss='mean_squared_error',optimizer=optimizer,metrics=['accuracy','mse'])
     return model
 
-model = KerasRegressor(build_fn=create_model,epochs=100,batch_size=5,verbose=1)
+model = KerasRegressor(build_fn=create_model,epochs=50,batch_size=5,verbose=1)
 # 设置算法评估基准
 kfold = KFold(n_splits=5,shuffle=True,random_state=seed)
 results = cross_val_score(model,x,Y,cv=kfold)
