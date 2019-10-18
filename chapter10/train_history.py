@@ -34,7 +34,7 @@ def create_model(optimizer='rmsprop', init='glorot_uniform'):
 # 构建模型
 model = create_model()
 
-history = model.fit(x, Y_labels, validation_split=0.2, epochs=200, batch_size=5, verbose=0)
+history = model.fit(x, Y_labels, validation_split=0.2, epochs=200, batch_size=5, verbose=1)
 
 # 评估模型
 scores = model.evaluate(x, Y_labels, verbose=0)

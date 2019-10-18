@@ -43,7 +43,7 @@ def parzen(n,xi,h1):
     def f(x):
         re = 0
         for i in range(n):
-            re = re + math.sqrt(n)*math.exp(-((x-xi[i]).dot((x-xi[i]))*n)/(2*h1))
+            re = re + math.sqrt(n)*math.exp(-((x-xi[i]).dot((x-xi[i]))*n)/(2*h1**2))
         return re/(n*math.sqrt(2*math.pi))
     return f
 # # test
@@ -53,9 +53,9 @@ def parzen(n,xi,h1):
 # q = (math.sqrt(2)*math.exp(-2)+math.sqrt(2)*math.exp(-8))/(2*math.sqrt(2*math.pi))
 # print(q)
 
-data_set = np.loadtxt('data_1.csv',delimiter=',')
+data_set = np.loadtxt('data_2.csv',delimiter=',')
 data_100 = data_set[0:300]
-print(np.mean(data_100.T[0]))
+# print(np.mean(data_100.T[0]))
 
 f = parzen(len(data_100),data_100,10)
 # x1 = np.random.randint(100,size=100)
@@ -104,7 +104,8 @@ plt.show()
 # plt.show()
 
 
-
+test = [0.3568334870227461,3.571159202472524]
+print(f(test))
 
 
 
